@@ -1,0 +1,56 @@
+# Задача-1:
+# Дан список фруктов.
+# Напишите программу, выводящую фрукты в виде нумерованного списка,
+# выровненного по правой стороне.
+
+# Пример:
+# Дано: ["яблоко", "банан", "киви", "арбуз"]
+# Вывод:
+# 1. яблоко
+# 2.  банан
+# 3.   киви
+# 4.  арбуз
+
+# Подсказка: воспользоваться методом .format()
+
+fruits = ['mango', 'dragonfrut', 'pineapple', 'orange', 'melon']
+numb = 1
+for this_fruit in fruits:
+    print('{}.{:>5}'.format(numb, this_fruit))
+    numb += 1
+# но можно и совсем просто, руками, без метода .format()
+fruits = ['mango', 'dragonfrut', 'pineapple', 'orange', 'melon']
+numb = 1
+for this_fruit in fruits:
+    print(str(numb) + '. ' + this_fruit)
+    numb += 1
+# не знаю, куда засунуть rjust для выравнивания по правому краю
+
+
+# Задача-2:
+# Даны два произвольные списка.
+# Удалите из первого списка элементы, присутствующие во втором списке.
+
+first_list = [100, 'Mirin', 37.5, 'nut', 'shellfish', 26, 15]
+second_list = ['amicus', 'nut', 100, 15, 229, 37.5, 'Aurum']
+temporary_list = [var for var in first_list if var in second_list]
+remote_list = [var for var in first_list if var not in temporary_list]
+balance_list = [var for var in first_list if var not in second_list]
+print('Перечень уникальных значений', balance_list)  # речь идет только о значениях первого списка, потому что
+# именно из него мы исключали значения второго
+
+
+# Задача-3:
+# Дан произвольный список из целых чисел.
+# Получите НОВЫЙ список из элементов исходного, выполнив следующие условия:
+# если элемент кратен двум, то разделить его на 4, если не кратен, то умножить на два.
+
+list_one = [2, 6, 12, 15, 33, 205, 333]
+list_two = []
+for x in list_one:
+    if x % 2 == 0:
+        x /= 4
+    else:
+        x *= 2
+    list_two.append(x)
+print('Новый список готов!', list_two)
